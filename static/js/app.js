@@ -1,5 +1,4 @@
 // from data.js
-var tableData = data;
 var table = d3.select("#ufo-table");
 var tbody = table.select("tbody");
 // Build Default Table
@@ -13,7 +12,7 @@ for (var i = 0; i < data.length; i++) {
     trow.append("td").text(data[i].durationMinutes);
     trow.append("td").text(data[i].comments);
 }
-var inputField = d3.select("#datetime");
+
 var submission = d3.select("#filter-btn");
 
 // When the form is completed and the submission button is clicked
