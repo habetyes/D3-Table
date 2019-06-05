@@ -13,6 +13,7 @@ for (var i = 0; i < data.length; i++) {
     trow.append("td").text(data[i].comments);
 }
 
+var reset = d3.select("#reset")
 var submission = d3.select("#filter-btn");
 
 // When the form is completed and the submission button is clicked
@@ -37,5 +38,21 @@ submission.on("click", function () {
         trow.append("td").text(filteredTable[i].shape);
         trow.append("td").text(filteredTable[i].durationMinutes);
         trow.append("td").text(filteredTable[i].comments);
+    }
+});
+
+// Allow user to reset table without having to refresh the page
+reset.on("click", function(){
+    d3.event.preventDefault();
+    tbody.selectAll("tr").remove();
+    for (var i = 0; i < data.length; i++) {
+        trow = tbody.append("tr");
+        trow.append("td").text(data[i].datetime);
+        trow.append("td").text(data[i].city);
+        trow.append("td").text(data[i].state);
+        trow.append("td").text(data[i].country);
+        trow.append("td").text(data[i].shape);
+        trow.append("td").text(data[i].durationMinutes);
+        trow.append("td").text(data[i].comments);
     }
 });
